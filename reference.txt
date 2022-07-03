@@ -1,1 +1,3 @@
 https://dev.to/rounakbanik/create-generative-nft-art-with-rarities-1n6f
+https://dev.to/rounakbanik/working-with-nft-metadata-ipfs-and-pinata-3ieh
+https://dev.to/rounakbanik/writing-an-nft-collectible-smart-contract-2nh8
