@@ -9,16 +9,16 @@ contract NFTCollectible is ERC721Enumerable, Ownable {
     using SafeMath for uint256;
     using Counters for Counters.Counter;
 
-    Counters.Counter private _tokenIds;
-    uint256 public constant MAX_SUPPLY = 100;
-    uint256 public constant PRICE = 0.01 ether;
-    uint256 public constant MAX_PER_MINT = 5;
+    Counters.Counter private _tokenIds;//id of token. Default(at first mint) is 0
+    uint256 public constant MAX_SUPPLY = 100;//Max mint number that owner allow.
+    uint256 public constant PRICE = 0.01 ether;//price of a mint.
+    uint256 public constant MAX_PER_MINT = 5;//max number of mint at a time
 
-    string public baseTokenURI;
-    constructor(string memory baseURI) ERC721("NFT Collectible", "NFTC") {
+    string public baseTokenURI;//baseTokenURI is IPFS url(meatadata)
+    constructor(string memory baseURI) ERC721("NFT Collectible", "NFTC") {//symbol and name is NFT Collectible, NTFC
         setBaseURI(baseURI);
     }
-    function reserveNFTs() public onlyOwner {
+    function reserveNFTs() public onlyOwner {//reserver NFTS for owner.
        uint totalMinted = _tokenIds.current();
         require(
             totalMinted.add(10) < MAX_SUPPLY, "Not enough NFTs"
@@ -75,5 +75,5 @@ contract NFTCollectible is ERC721Enumerable, Ownable {
         require(success, "Transfer failed.");
     }
     
-}
+}//after finishing contract, then go to scripts/run.js
 
